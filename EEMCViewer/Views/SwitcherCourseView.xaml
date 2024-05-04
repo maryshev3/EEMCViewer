@@ -1,0 +1,86 @@
+﻿<Page x:Class="EEMC.Views.SwitcherCourseView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:EEMC.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      DataContext="{Binding SwitcherCourseViewVM, Source={StaticResource ViewModelLocator}}"
+      Name="SwitcherPage"
+      Loaded="Page_Loaded"
+      Title="SwitcherCourseView">
+    
+    <Page.Resources>
+        <ControlTemplate 
+    x:Key="NoMouseOverButtonTemplate"   
+    TargetType="Button">
+            <Border Background="{TemplateBinding Background}"  
+        BorderBrush="{TemplateBinding BorderBrush}"  
+        BorderThickness="{TemplateBinding BorderThickness}">
+                <ContentPresenter
+            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"  
+            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger 
+            Property="IsEnabled"  
+            Value="False">
+                    <Setter 
+                Property="Background"  
+                Value="{x:Static SystemColors.ControlLightBrush}"/>
+                    <Setter 
+                Property="Foreground"  
+                Value="{x:Static SystemColors.GrayTextBrush}"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </Page.Resources>
+
+    <Border CornerRadius="10" Padding="4" Background="#f9f9f9">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Border BorderThickness="0, 0, 0, 2" BorderBrush="#a4b3ca">
+                <StackPanel Orientation="Horizontal" Name="SwitcherButtons">
+                    <Button
+                        Name="MaterialButton"
+                        MouseEnter="MaterialButton_MouseEnter"
+                        MouseLeave="MaterialButton_MouseLeave"
+                        Click="MaterialButton_Click"
+                        Command="{Binding OpenFiles_Click}"
+                        Background="#f9f9f9"
+                        FontSize="16"
+                        BorderThickness="0"
+                        Margin="0, 0, 10, 0"
+                        Template="{StaticResource NoMouseOverButtonTemplate}">
+                        <Label FontWeight="SemiBold">Полезные материалы</Label>
+                    </Button>
+                    <Button
+                        Name="LessonsButton"
+                        MouseEnter="LessonsButton_MouseEnter"
+                        MouseLeave="LessonsButton_MouseLeave"
+                        Click="LessonsButton_Click"
+                        Command="{Binding OpenThemes_Click}"
+                        Background="#f9f9f9"
+                        FontSize="16"
+                        BorderThickness="0"
+                        Padding="10"
+                        Template="{StaticResource NoMouseOverButtonTemplate}">
+                        <Label FontWeight="SemiBold">Просмотр занятий</Label>
+                    </Button>
+                </StackPanel>
+            </Border>
+
+            <Frame
+            Name="CurrentView"
+            Content="{Binding CurrentPage}"
+            Grid.Row="1"
+            NavigationUIVisibility="Hidden"
+            Background="#f9f9f9"/>
+        </Grid>
+    </Border>
+</Page>
