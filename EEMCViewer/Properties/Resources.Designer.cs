@@ -59,15 +59,5 @@ namespace EEMCViewer.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        public static byte[] AddImage {
-            get {
-                object obj = ResourceManager.GetObject("AddImage", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
     }
 }

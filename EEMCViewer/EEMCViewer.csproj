@@ -8,9 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Resources\AddImage.jpg" />
-    <None Remove="Resources\AddImage.png" />
-    <None Remove="Resources\app_icon.jpg" />
     <None Remove="Resources\app_icon.png" />
     <None Remove="Resources\close_icon.png" />
     <None Remove="Resources\close_icon_hovered.png" />
@@ -68,10 +65,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Resources\AddImage.png" />
     <Resource Include="Resources\app_icon.png" />
-    <Resource Include="Resources\close_icon.png" />
-    <Resource Include="Resources\close_icon_hovered.png" />
     <Resource Include="Resources\course_img0.png" />
     <Resource Include="Resources\course_img1.png" />
     <Resource Include="Resources\course_img2.png" />
@@ -82,14 +76,10 @@
     <Resource Include="Resources\course_img7.png" />
     <Resource Include="Resources\document_icon.png" />
     <Resource Include="Resources\document_icon_hovered.png" />
-    <Resource Include="Resources\modify_icon.png" />
-    <Resource Include="Resources\modify_icon_hovered.png" />
     <Resource Include="Resources\pause_icon.png" />
     <Resource Include="Resources\pause_icon_hovered.png" />
     <Resource Include="Resources\play_icon.png" />
     <Resource Include="Resources\play_icon_hovered.png" />
-    <Resource Include="Resources\three_points.png" />
-    <Resource Include="Resources\three_points_hovered.png" />
   </ItemGroup>
 
   <ItemGroup>
