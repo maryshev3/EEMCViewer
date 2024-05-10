@@ -82,13 +82,4 @@
     <Resource Include="Resources\play_icon_hovered.png" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Update="templates.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="themes.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
 </Project>
