@@ -24,6 +24,7 @@ namespace EEMC
         public DocumentViewVM DocumentViewVM => _provider.GetRequiredService<DocumentViewVM>();
         public VideoViewVM VideoViewVM => _provider.GetRequiredService<VideoViewVM>();
         public ImageViewVM ImageViewVM => _provider.GetRequiredService<ImageViewVM>();
+        public PdfViewVM PdfViewVM => _provider.GetRequiredService<PdfViewVM>();
 
         public static void AddVMs(ServiceCollection services)
         {
@@ -35,6 +36,7 @@ namespace EEMC
             services.AddTransient<DocumentViewVM>();
             services.AddTransient<VideoViewVM>();
             services.AddTransient<ImageViewVM>();
+            services.AddTransient<PdfViewVM>();
         }
 
         public static void Init() 
