@@ -64,7 +64,7 @@ TargetType="Button">
                                 <Grid Background="White">
                                     <StackPanel Orientation="Vertical">
                                         <StackPanel Orientation="Horizontal">
-                                            <Label Content="{Binding Path=ThemeName}" FontWeight="Bold" FontSize="16"/>
+                                            <Label Content="{Binding Path=NameWithNumber}" FontWeight="Bold" FontSize="16"/>
                                         </StackPanel>
                                         <Grid>
                                             <Grid.ColumnDefinitions>
@@ -73,7 +73,7 @@ TargetType="Button">
                                             </Grid.ColumnDefinitions>
                                             <StackPanel Orientation="Vertical" Grid.Column="0">
                                                 <StackPanel Orientation="Horizontal">
-                                                    <Label FontWeight="Bold" FontSize="16">Описание темы:</Label>
+                                                    <Label FontWeight="Bold" FontSize="16">Аннотация:</Label>
                                                 </StackPanel>
                                                 <Label>
                                                     <TextBlock 

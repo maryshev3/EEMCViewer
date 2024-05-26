@@ -12,6 +12,9 @@ namespace EEMC.Models
     public class Theme
     {
         public string ThemeName { get; set; }
+        [JsonIgnore]
+        public string NameWithNumber { get => $"{ThemeNumber}. {ThemeName}"; }
+        public int ThemeNumber { get; set; }
         public string ThemeDescription { get; set; }
         public ObservableCollection<ThemeFile>? Files { get; set; }
         public Boolean IsHiden { get; set; }
@@ -29,7 +32,7 @@ namespace EEMC.Models
 
         public static void RewriteAllThemes(Theme[] themes)
         {
-            string json = JsonConvert.SerializeObject(themes);
+            string json = JsonConvert.SerializeObject(themes.OrderBy(x => x.ThemeNumber));
 
             File.WriteAllText("./themes.json", json);
 
