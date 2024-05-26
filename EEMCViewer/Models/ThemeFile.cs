@@ -35,7 +35,8 @@ namespace EEMC.Models
             ".tiff",
             ".gif",
             ".icon",
-            ".pdf"
+            ".pdf",
+            ".ctt"
         };
 
         [JsonIgnore]
@@ -63,17 +64,32 @@ namespace EEMC.Models
             { ".tiff", "Image TIFF file | *.tiff" },
             { ".gif", "GIF file | *.gif" },
             { ".icon", "Image ICON file | *.icon" },
-            { ".pdf", "PDF file | *.pdf" }
+            { ".pdf", "PDF file | *.pdf" },
+            { ".ctt", "Course theme test file | *.ctt" }
         };
 
         public string Name { get; set; }
+        public string NameWithoutExtension
+        {
+            get => Path.GetFileNameWithoutExtension(Name);
+        }
         public string NameWithPath { get; set; }
+        public string ImagePath
+        {
+            get => IsTest() ? "/Resources/test_icon.png" : "/Resources/document_icon.png";
+        }
 
         public bool IsSupportedExtension()
         {
             string extension = Path.GetExtension(Name).ToLower();
 
             return _supportedExtensions.Contains(extension);
+        }
+        public bool IsTest()
+        {
+            string extension = Path.GetExtension(Name).ToLower();
+
+            return extension == ".ctt";
         }
 
         public bool IsVideoOrAudio()
