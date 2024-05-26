@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows;
 using System.Windows.Media.Imaging;
 using Microsoft.Win32;
+using System.Windows.Controls;
 
 namespace EEMC.ViewModels
 {
@@ -72,9 +73,20 @@ namespace EEMC.ViewModels
                         }
                         else
                         {
-                            window = new DocumentView();
+                            if (currentFileConverted.IsTest())
+                            {
+                                Test test = TestService.Load(Environment.CurrentDirectory + currentFileConverted.NameWithPath);
 
-                            await _messageBus.SendTo<DocumentViewVM>(new ThemeFileMessage(currentFileConverted));
+                                window = new TestView();
+
+                                await _messageBus.SendTo<TestViewVM>(new TestMessage(test));
+                            }
+                            else
+                            {
+                                window = new DocumentView();
+
+                                await _messageBus.SendTo<DocumentViewVM>(new ThemeFileMessage(currentFileConverted));
+                            }
                         }
                     }
                 }

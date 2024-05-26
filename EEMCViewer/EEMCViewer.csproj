@@ -9,6 +9,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\answered_good_icon.png" />
+    <None Remove="Resources\answered_incorrect_icon.png" />
+    <None Remove="Resources\answered_unknown_icon.png" />
     <None Remove="Resources\app_icon.png" />
     <None Remove="Resources\close_icon.png" />
     <None Remove="Resources\close_icon_hovered.png" />
@@ -29,8 +32,10 @@
     <None Remove="Resources\pause_icon_hovered.png" />
     <None Remove="Resources\play_icon.png" />
     <None Remove="Resources\play_icon_hovered.png" />
+    <None Remove="Resources\test_icon.png" />
     <None Remove="Resources\three_points.png" />
     <None Remove="Resources\three_points_hovered.png" />
+    <None Remove="Resources\wait_answer_icon.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -69,6 +74,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\answered_good_icon.png" />
+    <Resource Include="Resources\answered_incorrect_icon.png" />
+    <Resource Include="Resources\answered_unknown_icon.png" />
     <Resource Include="Resources\app_icon.png" />
     <Resource Include="Resources\course_img0.png" />
     <Resource Include="Resources\course_img1.png" />
@@ -84,6 +92,8 @@
     <Resource Include="Resources\pause_icon_hovered.png" />
     <Resource Include="Resources\play_icon.png" />
     <Resource Include="Resources\play_icon_hovered.png" />
+    <Resource Include="Resources\test_icon.png" />
+    <Resource Include="Resources\wait_answer_icon.png" />
   </ItemGroup>
 
 </Project>
