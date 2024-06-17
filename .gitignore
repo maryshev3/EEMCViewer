@@ -2,3 +2,13 @@
 /EEMCViewer/bin/
 /EEMCViewer/obj/
 /EEMCViewer/Properties/PublishProfiles/FolderProfile.pubxml.user
+/CustomUninstaller/obj/Debug
+/packages
+/CustomUninstaller/bin/Debug
+/CustomCommit/obj/Debug
+/CustomCommit/bin/Debug
+/CustomInstaller/bin/Debug
+/CustomInstaller/obj/Debug
+/Setup/Debug
+/CustomRollback/bin/Debug
+/CustomRollback/obj/Debug
