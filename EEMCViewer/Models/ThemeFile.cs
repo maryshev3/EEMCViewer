@@ -36,7 +36,8 @@ namespace EEMC.Models
             ".gif",
             ".icon",
             ".pdf",
-            ".ctt"
+            ".ctt",
+            ".ttt"
         };
 
         [JsonIgnore]
@@ -65,7 +66,8 @@ namespace EEMC.Models
             { ".gif", "GIF file | *.gif" },
             { ".icon", "Image ICON file | *.icon" },
             { ".pdf", "PDF file | *.pdf" },
-            { ".ctt", "Course theme test file | *.ctt" }
+            { ".ctt", "Course theme test file | *.ctt" },
+            { ".ttt", "Total theme test file | *.ttt" }
         };
 
         public string Name { get; set; }
@@ -76,7 +78,16 @@ namespace EEMC.Models
         public string NameWithPath { get; set; }
         public string ImagePath
         {
-            get => IsTest() ? "/Resources/test_icon.png" : "/Resources/document_icon.png";
+            get
+            {
+                if (IsTest())
+                    return "/Resources/test_icon.png";
+
+                if (IsTotalTest())
+                    return "/Resources/total_test_icon.png";
+
+                return "/Resources/document_icon.png";
+            }
         }
 
         public bool IsSupportedExtension()
@@ -85,6 +96,14 @@ namespace EEMC.Models
 
             return _supportedExtensions.Contains(extension);
         }
+
+        public bool IsTotalTest()
+        {
+            string extension = Path.GetExtension(Name).ToLower();
+
+            return extension == ".ttt";
+        }
+
         public bool IsTest()
         {
             string extension = Path.GetExtension(Name).ToLower();
