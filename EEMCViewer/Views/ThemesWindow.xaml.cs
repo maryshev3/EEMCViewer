@@ -79,7 +79,7 @@ namespace EEMC.Views
 
             ThemesWindowVM dc = ThemeWindow.DataContext as ThemesWindowVM;
 
-            if (file.IsTest())
+            if (file.IsTest() || file.IsTotalTest())
             {
                 dc.ShowFile_Click.Execute(file);
 

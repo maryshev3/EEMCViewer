@@ -13,6 +13,8 @@ using System.Windows;
 using System.Windows.Media.Imaging;
 using Microsoft.Win32;
 using System.Windows.Controls;
+using Newtonsoft.Json;
+using System.IO;
 
 namespace EEMC.ViewModels
 {
@@ -77,15 +79,30 @@ namespace EEMC.ViewModels
                             {
                                 Test test = TestService.Load(Environment.CurrentDirectory + currentFileConverted.NameWithPath);
 
-                                window = new TestView();
+                                window = new TestView(test);
 
-                                await _messageBus.SendTo<TestViewVM>(new TestMessage(test));
+                                //await _messageBus.SendTo<TestViewVM>(new TestMessage(test));
                             }
                             else
                             {
-                                window = new DocumentView();
-
-                                await _messageBus.SendTo<DocumentViewVM>(new ThemeFileMessage(currentFileConverted));
+                                if (currentFileConverted.IsTotalTest())
+                                {
+                                    string originFileName = Environment.CurrentDirectory + currentFileConverted.NameWithPath;
+                                    string json = File.ReadAllText(originFileName);
+                                    var tests = JsonConvert.DeserializeObject<TotalTestItem[]>(json);
+                                    if (!tests.Any())
+                                    {
+                                        MessageBox.Show("Для итогового теста отсутствует список тем");
+                                        return;
+                                    }
+                                    Test test = TestService.TestFromTotalTest(tests, originFileName);
+                                    window = new TestView(test);
+                                }
+                                else
+                                {
+                                    window = new DocumentView();
+                                    await _messageBus.SendTo<DocumentViewVM>(new ThemeFileMessage(currentFileConverted));
+                                }
                             }
                         }
                     }

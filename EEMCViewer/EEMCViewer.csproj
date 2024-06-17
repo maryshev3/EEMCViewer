@@ -35,6 +35,7 @@
     <None Remove="Resources\test_icon.png" />
     <None Remove="Resources\three_points.png" />
     <None Remove="Resources\three_points_hovered.png" />
+    <None Remove="Resources\total_test_icon.png" />
     <None Remove="Resources\wait_answer_icon.png" />
   </ItemGroup>
 
@@ -93,6 +94,7 @@
     <Resource Include="Resources\play_icon.png" />
     <Resource Include="Resources\play_icon_hovered.png" />
     <Resource Include="Resources\test_icon.png" />
+    <Resource Include="Resources\total_test_icon.png" />
     <Resource Include="Resources\wait_answer_icon.png" />
   </ItemGroup>
 
