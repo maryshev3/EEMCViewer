@@ -1,5 +1,6 @@
 ﻿using EEMC.Models;
 using EEMC.ViewBases;
+using EEMC.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace EEMC.Views
     /// <summary>
     /// Логика взаимодействия для CourseWindow.xaml
     /// </summary>
-    public partial class CourseWindow : Page
+    public partial class CourseWindow : Page, IInitWebView2
     {
         public CourseWindow()
         {
@@ -36,6 +37,26 @@ namespace EEMC.Views
 
             if (item != null)
                 item.IsSelected = false;
+        }
+
+        private async void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            await (this as IInitWebView2).InitializeWebView2(webView);
+
+            //Устанавливаем Source у WebView2
+            webView.Source = (this.DataContext as CourseWindowVM).PdfPath;
+        }
+
+        private void CourseTreeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            var item = CourseTreeView.SelectedItem as Explorer;
+
+            //Устанавливаем Source у WebView2
+            var dc = this.DataContext as CourseWindowVM;
+
+            dc.ShowFile_Click.Execute(item);
+
+            webView.Source = dc.PdfPath;
         }
     }
 }
